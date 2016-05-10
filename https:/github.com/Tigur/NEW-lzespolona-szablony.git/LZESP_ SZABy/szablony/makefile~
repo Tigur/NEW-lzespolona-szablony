@@ -1,0 +1,13 @@
+#Play groundowy MAKEFILE
+
+Play: Wektor.o play.o 
+	g++ -o PLAY -std=c++11  play.o  Wektor.o
+
+play.o: play.cpp Wektor.h  Macierz.hh  rozmiar.h 
+	g++ -c -Wall -pedantic -std=c++11 -o play.o play.cpp
+
+Wektor.o: Wektor.h Wektor.cpp rozmiar.h
+	g++ -c -Wall -pedantic -std=c++11 -o Wektor.o Wektor.cpp
+
+clean: 
+	rm -f *.o

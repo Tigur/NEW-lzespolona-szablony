@@ -1,0 +1,5 @@
+ZESP: lzespolonaa.o
+	g++ -o ZESP -Wall -pedantic -std=c++11 lzespolonaa.o  
+
+lzepolonaa.o: lzespolonaa.hh lzespolonaa.cpp
+	g++ -c -Wall -pedantic -std=c++11 -o  lzespolonaa.o  lzespolonaa.cpp

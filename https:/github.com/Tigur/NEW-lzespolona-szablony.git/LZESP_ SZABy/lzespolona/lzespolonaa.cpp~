@@ -1,0 +1,47 @@
+#include <iostream>
+#include "lzespolonaa.hh"
+
+using namespace std;
+
+/*
+  LZespolona()
+  {
+    (*this)._re=0;
+    (*this)._im=0;
+  }
+*/
+
+
+
+double LZespolona::   Re() const { return _re; }
+
+double & LZespolona:: Re() {return (*this)._re;}
+
+double LZespolona::  Im() const { return (*this)._im;}
+  
+double & LZespolona:: Im() { return (*this)._im;}
+  
+LZespolona LZespolona::  operator + (const LZespolona&  Arg2) const
+{
+  LZespolona wynik;
+  wynik.Re()= (*this).Re() + Arg2.Re();
+
+
+  return wynik;
+}
+  
+LZespolona LZespolona ::  operator * (const LZespolona&  Arg2) const
+{
+ LZespolona wynik;
+  wynik.Re()= (*this).Re() + Arg2.Re();
+
+  return wynik;
+}
+
+ostream& operator << ( ostream & wyjscie, const LZespolona& Liczba)
+{
+  wyjscie <<"{ " << Liczba.Re() << " + "<< Liczba.Im() << " }"<< endl;
+  
+
+  
+}

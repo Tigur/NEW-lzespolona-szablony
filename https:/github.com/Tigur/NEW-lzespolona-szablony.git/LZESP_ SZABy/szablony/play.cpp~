@@ -1,0 +1,16 @@
+#include <iostream>
+#include <cstdio>
+
+#include "Macierz.hh"
+#include "Wektor.h"
+
+using namespace std; 
+int main () 
+{
+  Macierz<float> M;
+  cin >> M;
+  cout << M;
+
+
+
+}

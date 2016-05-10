@@ -1,0 +1,92 @@
+#ifndef WEKTOR_H
+#define WEKTOR_H
+
+
+ typedef float typ;
+
+#include "rozmiar.h"
+#include <iostream>
+
+
+
+/*
+ *  Tutaj trzeba opisac klase. Jakie pojecie modeluje ta klasa
+ *  i jakie ma glowne cechy.
+ */
+
+template <class typ_pol>
+class Wektor {
+  /*
+   *  Tutaj trzeba wstawic definicje odpowiednich pol i metod prywatnych
+   */
+
+
+
+
+
+  typ_pol Wsp[ROZMIAR];
+
+ public:
+  typ_pol operator[]  (int Ind) const { return Wsp[Ind]; }
+  typ_pol & operator[]  (int Ind) { return Wsp[Ind]; }
+  typ_pol operator & (const Wektor < typ_pol > & V2) const;
+  typ_pol  IloczynSkal( const Wektor < typ_pol > & V2 ) const
+  {
+
+    typ_pol Wynik = 0;
+    for (int Ind = 0; Ind < ROZMIAR; ++Ind) Wynik += (*this)[Ind]*V2[Ind];
+    return Wynik;
+  }
+ // float  operator * ( const Wektor & V1, const Wektor & V2) {return V1.IloczynSkal(V2);}
+
+  /*
+   *  Tutaj trzeba wstawic definicje odpowiednich metod publicznych
+   */
+};
+
+
+/*
+ * To przeciazenie trzeba opisac. Co ono robi. Jaki format
+ * danych akceptuje. Jakie jest znaczenie parametrow itd.
+ * Szczegoly dotyczace zalecen realizacji opisow mozna
+ * znalezc w pliku:
+ *    ~bk/edu/kpo/zalecenia.txt
+ */
+
+std::istream & operator >> (std::istream & wejscie, Wektor< typ > & W);
+
+/*
+ * To przeciazenie trzeba opisac. Co ono robi. Jaki format
+ * danych akceptuje. Jakie jest znaczenie parametrow itd.
+ * Szczegoly dotyczace zalecen realizacji opisow mozna
+ * znalezc w pliku:
+ *    ~bk/edu/kpo/zalecenia.txt
+ */
+
+std::ostream & operator << (std::ostream & wyjscie, const Wektor<typ> & W);
+
+
+inline typ  operator * ( const Wektor<typ> & V1, const Wektor<typ> & V2) {return V1.IloczynSkal(V2);}
+// -------------------------------------------------------------------------------------------------------------------------------------
+
+Wektor <typ>  operator * ( const Wektor< typ > & V1, const typ d);
+
+
+Wektor <typ> operator + (const Wektor< typ > & V1, const Wektor< typ > & V2);
+
+
+//float operator + (const Wektor & V1, const typ_pol d);
+
+
+Wektor <typ> operator - (const Wektor< typ > & V1, const Wektor< typ > & V2);
+
+
+//float operator - (const Wektor & V1, const typ_pol d);
+
+
+Wektor <typ> operator / (const Wektor< typ > & V1, const typ d);
+
+
+
+#endif
+

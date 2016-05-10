@@ -1,0 +1,37 @@
+#ifndef LZESPOLONA_HH
+#define LZESPOLONA_HH
+
+
+
+#include <iostream>
+
+
+
+
+
+class LZespolona {
+  double  _re;
+  double  _im;
+
+
+public:
+ 
+  LZespolona();
+
+  double  Re() const;
+
+  double& Re();
+
+  double  Im() const;
+  
+  double& Im();
+  
+  LZespolona  operator + (const LZespolona&  Arg2) const;
+  
+  LZespolona  operator * (const LZespolona&  Arg2) const;
+};
+
+
+std::ostream&  operator << ( std::ostream&     StrmWy,const LZespolona&  WyswietlanaLiczba);
+
+#endif
